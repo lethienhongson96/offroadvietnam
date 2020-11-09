@@ -1,18 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace OffRoadVietNam.Models
+namespace OffRoadVietNam.API.Identity
 {
-    public class AppDbContext : IdentityDbContext<ApplicationUser>
+    public class AppDbContext: IdentityDbContext<ApplicationUser>
     {
-        public AppDbContext()
+        public AppDbContext(DbContextOptions options) : base(options)
         {
-
         }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public AppDbContext()
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

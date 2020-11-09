@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using OffRoadVietNam.API.Identity;
 using OffRoadVietNam.BAL.Implement;
 using OffRoadVietNam.BAL.Interface;
 using OffRoadVietNam.DAL.Implement;
@@ -31,6 +34,13 @@ namespace OffRoadVietNamAPI
         {
             services.AddControllers();
             services.AddSwaggerGen();
+
+            services.AddDbContext<AppDbContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("ConnectionStr")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<AppDbContext>();
 
             //add scoped
             services.AddScoped<IPlanService, PlanService>();
