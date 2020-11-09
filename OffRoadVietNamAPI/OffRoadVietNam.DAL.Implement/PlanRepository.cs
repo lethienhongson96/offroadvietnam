@@ -11,6 +11,28 @@ namespace OffRoadVietNam.DAL.Implement
 {
     public class PlanRepository : BaseRepository, IPlanRepository
     {
+        public async Task<SavePlanRes> ChangeStatus(ChangeStatusReq changeStatusReq)
+        {
+            SavePlanRes Result = new SavePlanRes();
+
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@PlanId", changeStatusReq.PlanId);
+                parameters.Add("@Status", changeStatusReq.Status);
+
+                Result = await SqlMapper.QueryFirstOrDefaultAsync<SavePlanRes>(cnn: connection,
+                                                                    sql: "sp_ChangeStatus",
+                                                                    param: parameters,
+                                                                    commandType: CommandType.StoredProcedure);
+                return Result;
+            }
+            catch (Exception)
+            {
+                return Result;
+            }
+        }
+
         public async Task<SavePlanRes> Create(SavePlanReq createPlanReq)
         {
             SavePlanRes Result = new SavePlanRes();

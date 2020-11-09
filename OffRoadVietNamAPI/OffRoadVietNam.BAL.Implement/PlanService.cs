@@ -17,6 +17,12 @@ namespace OffRoadVietNam.BAL.Implement
         {
             this.planRepository = planRepository;
         }
+
+        public async Task<SavePlanRes> ChangeStatus(ChangeStatusReq changeStatusReq)
+        {
+            return await planRepository.ChangeStatus(changeStatusReq);
+        }
+
         public async Task<SavePlanRes> Create(SavePlanReq request)
         {
             return await planRepository.Create(request);

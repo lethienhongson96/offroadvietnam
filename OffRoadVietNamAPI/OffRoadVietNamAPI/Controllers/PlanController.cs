@@ -34,5 +34,13 @@ namespace OffRoadVietNam.API.Controllers
             var result = await planService.GetPlans();
             return Ok(result);
         }
+
+        [HttpPatch]
+        [Route("api/plan/ChangeStatus")]
+        public async Task<OkObjectResult> ChangeStatus(ChangeStatusReq changeStatusReq)
+        {
+            var result = await planService.ChangeStatus(changeStatusReq);
+            return Ok(result);
+        }
     }
 }

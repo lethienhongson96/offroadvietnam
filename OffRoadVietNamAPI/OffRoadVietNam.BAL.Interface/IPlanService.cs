@@ -10,6 +10,7 @@ namespace OffRoadVietNam.BAL.Interface
     public interface IPlanService
     {
         Task<SavePlanRes> Create(SavePlanReq request);
+        Task<SavePlanRes> ChangeStatus(ChangeStatusReq changeStatusReq);
         Task<IEnumerable<PlanView>> GetPlans();
     }
 }

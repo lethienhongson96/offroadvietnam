@@ -11,5 +11,6 @@ namespace OffRoadVietNam.DAL.Interface
     {
         Task<SavePlanRes> Create(SavePlanReq createPlanReq);
         Task<IEnumerable<PlanView>> Gets();
+        Task<SavePlanRes> ChangeStatus(ChangeStatusReq changeStatusReq);
     }
 }
