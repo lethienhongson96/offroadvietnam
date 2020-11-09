@@ -1,10 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\OffRoadVietNam.BAL.Implement\OffRoadVietNam.BAL.Implement.csproj" />
+	  <ProjectReference Include="..\OffRoadVietNam.BAL.Interface\OffRoadVietNam.BAL.Interface.csproj" />
+	  <ProjectReference Include="..\OffRoadVietNam.DAL.Implement\OffRoadVietNam.DAL.Implement.csproj" />
+	  <ProjectReference Include="..\OffRoadVietNam.DAL.Interface\OffRoadVietNam.DAL.Interface.csproj" />
+	  <ProjectReference Include="..\OffRoadVietNamDomain\OffRoadVietNam.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

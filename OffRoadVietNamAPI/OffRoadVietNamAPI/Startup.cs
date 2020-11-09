@@ -10,6 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using OffRoadVietNam.BAL.Implement;
+using OffRoadVietNam.BAL.Interface;
+using OffRoadVietNam.DAL.Implement;
+using OffRoadVietNam.DAL.Interface;
 
 namespace OffRoadVietNamAPI
 {
@@ -27,6 +31,10 @@ namespace OffRoadVietNamAPI
         {
             services.AddControllers();
             services.AddSwaggerGen();
+
+            //add scoped
+            services.AddScoped<IPlanService, PlanService>();
+            services.AddScoped<IPlanRepository, PlanRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
