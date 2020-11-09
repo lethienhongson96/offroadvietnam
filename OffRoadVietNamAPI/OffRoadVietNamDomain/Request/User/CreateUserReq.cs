@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace OffRoadVietNam.API.Identity.ViewModel
+namespace OffRoadVietNam.Domain.Request.User
 {
-    public class CreateUserView
+    public class CreateUserReq
     {
         public string Email { get; set; }
         public string PassWord { get; set; }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OffRoadVietNam.API.Identity;
-using OffRoadVietNam.API.Identity.ViewModel;
+using OffRoadVietNam.Domain.Request.User;
+using System.Threading.Tasks;
 
 namespace OffRoadVietNam.API.Controllers
 {
@@ -22,15 +18,15 @@ namespace OffRoadVietNam.API.Controllers
 
         [HttpPost]
         [Route("api/Account/Create")]
-        public async Task<OkObjectResult> Create(CreateUserView createUserView)
+        public async Task<OkObjectResult> Create(CreateUserReq createUserReq)
         {
             var user = new ApplicationUser()
             {
-                UserName = createUserView.Email,
-                Email = createUserView.Email
+                UserName = createUserReq.Email,
+                Email = createUserReq.Email
             };
 
-            var result = await userManager.CreateAsync(user, createUserView.PassWord);
+            var result = await userManager.CreateAsync(user, createUserReq.PassWord);
             return Ok(result);
         }
 
