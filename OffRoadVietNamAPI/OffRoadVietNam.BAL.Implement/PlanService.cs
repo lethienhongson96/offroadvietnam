@@ -17,9 +17,14 @@ namespace OffRoadVietNam.BAL.Implement
         {
             this.planRepository = planRepository;
         }
-        public async Task<CreatePlanRes> Create(CreatePlanReq request)
+        public async Task<SavePlanRes> Create(SavePlanReq request)
         {
             return await planRepository.Create(request);
+        }
+
+        public async Task<IEnumerable<PlanView>> GetPlans()
+        {
+            return await planRepository.Gets();
         }
     }
 }

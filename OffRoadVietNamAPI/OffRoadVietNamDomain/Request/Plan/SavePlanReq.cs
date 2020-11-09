@@ -4,8 +4,9 @@ using System.Text;
 
 namespace OffRoadVietNam.Domain.Request.Plan
 {
-    public class CreatePlanReq
+    public class SavePlanReq
     {
+        public int PlanId { get; set; }
         public string PlaceName { get; set; }
         public string Title { get; set; }
         public int LevelDifficult { get; set; }

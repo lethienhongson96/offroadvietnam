@@ -9,6 +9,7 @@ namespace OffRoadVietNam.DAL.Interface
 {
     public interface IPlanRepository
     {
-        Task<CreatePlanRes> Create(CreatePlanReq createPlanReq);
+        Task<SavePlanRes> Create(SavePlanReq createPlanReq);
+        Task<IEnumerable<PlanView>> Gets();
     }
 }

@@ -19,11 +19,19 @@ namespace OffRoadVietNam.API.Controllers
             this.planService = planService;
         }
 
-        [HttpPost]
-        [Route("api/Plan/Create")]
-        public async Task<OkObjectResult> SaveCourse(CreatePlanReq request)
+        [HttpPost,HttpPatch]
+        [Route("api/plan/Save")]
+        public async Task<OkObjectResult> SavePlan(SavePlanReq request)
         {
             var result = await planService.Create(request);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("api/plan/gets")]
+        public async Task<OkObjectResult> GetPlans()
+        {
+            var result = await planService.GetPlans();
             return Ok(result);
         }
     }
