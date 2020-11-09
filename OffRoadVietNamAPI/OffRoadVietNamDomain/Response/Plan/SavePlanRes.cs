@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OffRoadVietNam.Domain.Response.Plan
+﻿namespace OffRoadVietNam.Domain.Response.Plan
 {
     public class SavePlanRes
     {

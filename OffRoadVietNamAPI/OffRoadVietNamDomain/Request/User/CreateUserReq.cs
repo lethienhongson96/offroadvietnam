@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OffRoadVietNam.Domain.Request.User
+﻿namespace OffRoadVietNam.Domain.Request.User
 {
     public class CreateUserReq
     {

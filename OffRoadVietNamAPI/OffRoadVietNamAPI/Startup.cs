@@ -31,13 +31,17 @@ namespace OffRoadVietNamAPI
             services.AddDbContext<AppDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("ConnectionStr")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<AppDbContext>();
 
-            //add scoped
+            //add scoped for plan
             services.AddScoped<IPlanService, PlanService>();
             services.AddScoped<IPlanRepository, PlanRepository>();
+
+            //add scoped for planmember
+            services.AddScoped<IPlanMemberService, PlanMemberService>();
+            services.AddScoped<IPlanMemberRepository, PlanMemberRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
