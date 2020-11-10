@@ -3,9 +3,7 @@ using OffRoadVietNam.DAL.Interface;
 using OffRoadVietNam.Domain.Request.PlanMember;
 using OffRoadVietNam.Domain.Response.PlanMember;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OffRoadVietNam.DAL.Implement
